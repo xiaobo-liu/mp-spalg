@@ -1,6 +1,6 @@
 # Multiprecision Schur-Parlett algorithm for general matrix functions without derivatives. 
 
-`funm_nd` is a Schur-Parlett algorithm for computing a function of a square
+Function `funm_nd` is a Schur-Parlett algorithm for computing a function of a square
 matrix without using derivatives. It evaluates the nontrivial diagonal
 blocks in the Schur form using randomized approximate diagonalization with
 a diagonal perturbation.
