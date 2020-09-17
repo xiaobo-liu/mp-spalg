@@ -6,7 +6,7 @@ function F = funm_nd(A,fun,delta)
 %   nontrivial diagonal blocks in the Schur form using randomized
 %   approximate diagonalization with a diagonal perturbation.
 %   FUNM_ND(A,fun,delta) specifies the blocking parameter delta, 
-%   which defults to 0.1.
+%   which defaults to 0.1.
 
 % Default parameters.
 if nargin < 3 || isempty(delta)
