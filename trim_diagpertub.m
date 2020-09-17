@@ -8,7 +8,7 @@ function [F,d_uh] = trim_diagpertub(T,fun)
 %   d_uh returns equivalent decimal digits of the 
 %   possibly higher than u^2 precision.
 
-d_uh = 16; % the defult
+d_uh = 16; % the default
 [m,n] = size(T);
 if  ~isfloat(T) || ~ismatrix(T) || m ~= n
    error(message('MATLAB:funm:InputDim'));
@@ -51,9 +51,9 @@ E = E/norm(E,'fro')*u*max_tij;
 
 % Use precision u^2 to form T + E since E might be 
 % too small to be added by T in precision u
-d_old = digits();
-d_defult = 32; % precision with unit roundoff u^2
-mp.Digits(d_defult);
+d_old = mp.Digits(); % initial 'mp digits'
+d_default = 32; % precision with unit roundoff u^2
+mp.Digits(d_default);
 Ttilde = mp(T) + mp(E);
 
 % Calculate the largest group size k
@@ -66,15 +66,15 @@ if k>1  % evaluate the required precision uh
     cm = theta*max_tij/m;
     uh = cm*u^2/max_tij_tilde*(max_tij_tilde/cm/u+1)^(2-k);
     d_uh = double(ceil(log10(1/uh)));
-    mp.Digits(max(d_uh,d_defult));
+    mp.Digits(max(d_uh,d_default));
 end
 
-d_uh = mp.Digits;
+d_uh = mp.Digits();
 % Increase the precision from u^2 to uh in solving V when necessary
 Ttilde = mp(Ttilde); 
 [V,Dtilde] = eig(Ttilde); 
 F = double(V*diag(fun(diag(Dtilde)))/V);
-digits(d_old);  
+mp.Digits(d_old); % return 'mp digits' to the value it had at the start
 
 if isreal(T) && norm(imag(F),1) <= 10*n*eps*norm(F,1)
    F = real(F);
