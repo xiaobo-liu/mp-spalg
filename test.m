@@ -1,5 +1,8 @@
 %TEST   Simple test of FUNM_ND.
 
+format compact
+addpath('include');
+
 n = 50;
 num = 10;
 rng(1)
