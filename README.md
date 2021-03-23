@@ -14,7 +14,7 @@ Details on the underlying algorithms can be found in the technical report:
 
 N. J. Higham and X. Liu. A Multiprecision Derivative-Free Schur-Parlett Algorithm for Computing Matrix Functions, MIMS EPrint 2020.19, 2020.
 
-All codes used for generating the data in the above report are included.
+All codes used for generating the data in the above report are included in this repository.
 
 ## Dependencies
 
