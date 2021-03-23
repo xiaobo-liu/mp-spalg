@@ -192,6 +192,7 @@ total_samp = 10; % number of samples
 err_vec = zeros(total_samp,2);
 % num_samp = zeros(1,2);
 
+d_old = mp.Digits();
 mp.Digits(200);
 refX = double(refm(mp(T)));
 
@@ -211,11 +212,13 @@ max_err = max(err_vec);
 % ratio = num_samp/total_samp;
 data = [max_err,condfu,digits]; % take the maximal error in the table
 % data = [max_err,ratio,condfu,digits];
+mp.Digits(d_old);
 end
 
 function [error_diag,error_full,digits] = comput_error(T,fun,refX)
 [F_diag,digits] = trim_diagpertub(T,fun);
 F_full = trim_fullpertub(T,fun);
-error_diag = norm(F_diag-refX,'fro')/norm(refX,'fro');
-error_full = norm(F_full-refX,'fro')/norm(refX,'fro');
+norm_refX = norm(refX,'fro');
+error_diag = norm(F_diag-refX,'fro')/norm_refX;
+error_full = norm(F_full-refX,'fro')/norm_refX;
 end
