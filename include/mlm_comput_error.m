@@ -19,7 +19,7 @@ function mlm = mlm_ref(A,alpha,beta)
 % and then rounding back to double precision.
 
 d_comput = 200; % set the digits to use in diagonalization 
-d_old = digits();
+d_old = mp.Digits();
 mp.Digits(d_comput);
 A = mp(A);
 
@@ -30,5 +30,5 @@ delA = 10^(-d_comput/2)*delA/norm(delA,1);
 [V, D] = eig(A - delA); % E.B.Davies's trick
 % convert back into double presion
 mlm = double(V*diag(ml_truncat(diag(D),alpha,beta,d_comput))/V); 
-digits(d_old);
+mp.Digits(d_old);
 end
