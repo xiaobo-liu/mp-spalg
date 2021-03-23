@@ -131,9 +131,9 @@ if produce_results
     data_cos = sortrows(data_cos,-1);
     data_sinh = sortrows(data_sinh,-1);
     data_cosh = sortrows(data_cosh,-1);
-    save('test_fullmat.mat','data_sin','data_cos','data_sinh','data_cosh');
+    save('data/test_fullmat.mat','data_sin','data_cos','data_sinh','data_cosh');
 else
-    load test_fullmat.mat
+    load('data/test_fullmat.mat');
 end
 
 ymin = 1e-18;
