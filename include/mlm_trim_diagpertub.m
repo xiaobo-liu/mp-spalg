@@ -1,4 +1,4 @@
-function [F,d_uh] = mlm_trim_diagpertub(T,alpha,beta)
+3333333function [F,d_uh] = mlm_trim_diagpertub(T,alpha,beta)
 %ML_TRIM_DIAGPERTUB A modified version of TRIM_DIAGPERTUB for the 
 %matrix ML function.
 %   We need this since the scalar ML function to different digits of 
@@ -22,7 +22,8 @@ end
 % parameters: thera and delta_1
 theta = 0.4;
 delta1 = 5e-3;
-% use precision u^2 for computing 1*1 and 2*2 blocks
+% use a slightly higher precision in the summation to get accurately computed 
+% scalar Mittag-Leffler function value
 fun = @(z) ml_truncat(z,alpha,beta,32);
 
 % Handle special case of diagonal T.
