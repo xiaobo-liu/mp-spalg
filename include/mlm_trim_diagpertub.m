@@ -1,4 +1,4 @@
-3333333function [F,d_uh] = mlm_trim_diagpertub(T,alpha,beta)
+function [F,d_uh] = mlm_trim_diagpertub(T,alpha,beta)
 %ML_TRIM_DIAGPERTUB A modified version of TRIM_DIAGPERTUB for the 
 %matrix ML function.
 %   We need this since the scalar ML function to different digits of 
