@@ -22,9 +22,9 @@ end
 % parameters: thera and delta_1
 theta = 0.4;
 delta1 = 5e-3;
-% use a slightly higher precision in the summation to get accurately computed 
-% scalar Mittag-Leffler function value
-fun = @(z) ml_truncat(z,alpha,beta,32);
+% % use precision u^2 for computing 1*1 and 2*2 blocks
+% fun = @(z) ml_truncat(z,alpha,beta,32);
+fun = @(z) ml_truncat(z,alpha,beta,16);
 
 % Handle special case of diagonal T.
 diagT = diag(T);
